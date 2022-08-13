@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>Subscription Plans</div>
     <template v-if="isLoading">
       <div
         class="spinner-border inline-block h-8 w-8 animate-spin rounded-full border-4 text-blue-600"
@@ -8,6 +7,7 @@
       ></div>
     </template>
     <template v-else>
+      <div>Subscription Plans</div>
       <div v-for="product in products" :key="product.id">
         {{ product.name }}
         <div v-for="price in product.prices" :key="price.id">
@@ -40,6 +40,7 @@ const products = ref([])
 const isLoading = ref(false)
 
 async function fetchProducts() {
+  isLoading.value = true
   const db = getFirestore()
 
   const productsQuerySnapshot = await getDocs(
@@ -55,6 +56,7 @@ async function fetchProducts() {
       prices: pricesQuerySnapshot.docs.map(price => ({ id: price.id, ...price.data() })),
     })
   })
+  isLoading.value = false
 }
 
 if (process.client) fetchProducts()
