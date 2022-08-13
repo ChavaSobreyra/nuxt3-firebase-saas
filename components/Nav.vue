@@ -4,21 +4,28 @@
       <span class="text-xl font-semibold tracking-tight">SaaS Starter</span>
     </div>
 
-    <div class="block flex w-full w-auto flex-grow items-center">
+    <div class="flex w-auto flex-grow items-center">
       <div class="flex-grow text-sm text-slate-300">
         <NuxtLink
           to="/"
-          class="mt-4 mr-4 mt-0 block inline-block hover:text-white"
+          class="mt-4 mr-4 inline-block hover:text-white"
           exact-active-class="text-white"
         >
           Home
         </NuxtLink>
         <NuxtLink
           to="/account"
-          class="mt-4 mr-4 mt-0 block inline-block hover:text-white"
+          class="mt-4 mr-4 inline-block hover:text-white"
           exact-active-class="text-white"
         >
           Account
+        </NuxtLink>
+        <NuxtLink
+          to="/pricing"
+          class="mt-4 mr-4 inline-block hover:text-white"
+          exact-active-class="text-white"
+        >
+          Pricing
         </NuxtLink>
         <button
           v-if="!currentUser"
@@ -28,7 +35,11 @@
           Sign In
         </button>
         <template v-else>
-          <img class="inline h-10 w-10 rounded-full" :src="currentUser.photoURL" alt="" />
+          <img
+            class="inline h-10 w-10 rounded-full"
+            :src="currentUser.photoURL"
+            alt="User Avatar"
+          />
           <button
             class="float-right rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
             @click="logOut"
