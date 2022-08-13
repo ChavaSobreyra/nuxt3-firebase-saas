@@ -1,31 +1,36 @@
 <template>
-  <nav class="flex flex-wrap items-center justify-between bg-slate-500 p-6">
+  <nav class="flex flex-wrap items-center justify-between bg-slate-700 p-6">
     <div class="mr-6 flex flex-shrink-0 items-center text-white">
       <span class="text-xl font-semibold tracking-tight">SaaS Starter</span>
     </div>
 
     <div class="block flex w-full w-auto flex-grow items-center">
-      <div class="flex-grow text-sm">
-        <NuxtLink to="/" class="mt-4 mr-4 mt-0 block inline-block text-slate-200 hover:text-white">
+      <div class="flex-grow text-sm text-slate-300">
+        <NuxtLink
+          to="/"
+          class="mt-4 mr-4 mt-0 block inline-block hover:text-white"
+          exact-active-class="text-white"
+        >
           Home
         </NuxtLink>
         <NuxtLink
           to="/account"
-          class="mt-4 mr-4 mt-0 block inline-block text-slate-200 hover:text-white"
+          class="mt-4 mr-4 mt-0 block inline-block hover:text-white"
+          exact-active-class="text-white"
         >
           Account
         </NuxtLink>
         <button
           v-if="!currentUser"
-          class="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+          class="float-right rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
           @click="logIn"
         >
           Sign In
         </button>
         <template v-else>
-          <img class="inline-block h-10 w-10 rounded-full" :src="currentUser.photoURL" alt="" />
+          <img class="inline h-10 w-10 rounded-full" :src="currentUser.photoURL" alt="" />
           <button
-            class="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+            class="float-right rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
             @click="logOut"
           >
             Sign Out
