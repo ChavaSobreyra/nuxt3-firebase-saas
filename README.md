@@ -1,4 +1,4 @@
-# Nuxt3 SaaS Starter
+# Nuxt3 Firebase SaaS Starter
 
 ## Includes
 
