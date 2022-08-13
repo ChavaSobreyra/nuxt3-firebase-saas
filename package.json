@@ -46,6 +46,7 @@
     "vitest": "^0.21.1"
   },
   "dependencies": {
+    "firebase": "^9.9.2",
     "lodash": "^4.17.21"
   }
 }
