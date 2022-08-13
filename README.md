@@ -16,8 +16,8 @@
 
 ## Prerequisites
 
-- [Firebase Stripe Extension](https://firebase.google.com/products/extensions/stripe-firestore-stripe-payments)
-- Firebase Google Auth
+- Setup [Firebase Stripe Extension](https://firebase.google.com/products/extensions/stripe-firestore-stripe-payments)
+- Enable firebase auth using google sign in
 
 You must manually create the first release as v1 for the release drafter (the release drafter will increment after that)
 
