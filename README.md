@@ -1,7 +1,9 @@
-# Nuxt3 SaaS Starter
+# Nuxt3 Firebase SaaS Starter
 
-Includes
+## Includes
 
+- Google Sign In
+- [Run Payments with Stripe](https://firebase.google.com/products/extensions/stripe-firestore-stripe-payments)
 - eslint
 - prettier
 - jest (for unit tests)
@@ -12,9 +14,12 @@ Includes
   - release drafter
   - build, lint, test
 
-## Note
+## Prerequisites
 
-You must manually create the first release as v1, the release drafter will increment after that.
+- Setup [Firebase Stripe Extension](https://firebase.google.com/products/extensions/stripe-firestore-stripe-payments)
+- Enable firebase auth using google sign in
+
+You must manually create the first release as v1 for the release drafter (the release drafter will increment after that)
 
 In order for the labeler and release drafter to work, you must setup labels in Github for:
 
