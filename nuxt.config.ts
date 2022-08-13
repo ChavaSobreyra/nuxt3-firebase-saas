@@ -15,4 +15,20 @@ export default defineNuxtConfig({
       firebaseMeasurementId: process.env.NUXT_PUBLIC_FIREBASE_MEASUREMENT_ID ?? '',
     },
   },
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+    // https://google-fonts.nuxtjs.org/
+    '@nuxtjs-alt/google-fonts',
+
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss',
+  ],
+
+  tailwindcss: {
+    configPath: './tailwind.config.js',
+    // ? https://tailwindcss.nuxtjs.org/tailwind/config/#referencing-in-the-application
+    exposeConfig: true,
+    viewer: true,
+  },
 })
