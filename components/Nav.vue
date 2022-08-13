@@ -28,18 +28,14 @@
           Pricing
         </NuxtLink>
         <button
-          v-if="!currentUser"
+          v-if="!authUser"
           class="float-right rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
           @click="logIn"
         >
           Sign In
         </button>
         <template v-else>
-          <img
-            class="inline h-10 w-10 rounded-full"
-            :src="currentUser.photoURL"
-            alt="User Avatar"
-          />
+          <img class="inline h-10 w-10 rounded-full" :src="authUser.photoURL" alt="User Avatar" />
           <button
             class="float-right rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
             @click="logOut"
@@ -53,26 +49,8 @@
 </template>
 
 <script setup>
-import { signOut, GoogleAuthProvider, signInWithPopup } from '@firebase/auth'
+import { logIn, logOut } from '~~/composables/useAuth'
+import { useAuthUser } from '~~/composables/useAuthUser'
 
-const { $firebaseAuth } = useNuxtApp()
-const currentUser = ref()
-
-function getCurrentUser() {
-  $firebaseAuth.onAuthStateChanged(user => {
-    currentUser.value = user
-  })
-}
-
-if (process.client) getCurrentUser()
-
-async function logIn() {
-  await signInWithPopup($firebaseAuth, new GoogleAuthProvider())
-  getCurrentUser()
-}
-
-async function logOut() {
-  await signOut($firebaseAuth)
-  getCurrentUser()
-}
+const authUser = useAuthUser()
 </script>
