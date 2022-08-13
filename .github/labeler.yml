@@ -1,0 +1,8 @@
+feature:
+  title: '^feat:.*'
+fix:
+  title: '^fix:.*'
+chore:
+  title: '^chore:.*'
+refactor:
+  title: '^refactor:.*'
