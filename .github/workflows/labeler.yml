@@ -9,6 +9,7 @@ on:
 
 jobs:
   label_pr:
+    name: Label PR
     runs-on: ubuntu-latest
     steps:
       - uses: srvaroa/labeler@master
