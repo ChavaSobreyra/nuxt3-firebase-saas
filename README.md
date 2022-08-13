@@ -22,7 +22,3 @@ In order for the labeler and release drafter to work, you must setup labels in G
 - bug
 - chore
 - refactor
-
-# Nuxt 3 Minimal Starter
-
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
