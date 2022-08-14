@@ -53,6 +53,9 @@ jobs:
           path: ~/.cache/Cypress
           key: ui-cypress-^10.4.0
 
+      - name: Vercel Action
+        uses: amondnet/vercel-action@v25.1.0
+
   lint_and_test:
     name: Lint and Test
     runs-on: ubuntu-latest
