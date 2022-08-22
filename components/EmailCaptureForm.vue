@@ -6,25 +6,29 @@
         v-model="email"
         type="email"
         name="email"
+        :disabled="pending"
         class="float-left mt-1 block rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
         placeholder="Your work email"
       />
       <button
+        :disabled="pending"
         class="float-left rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
         @click="postSubscribe"
       >
         subscribe
       </button>
+      <div v-if="data" class="text-green-600">Subscribed!</div>
+      <div v-if="error" class="text-red-600">Error.</div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const email = ref('')
 async function postSubscribe() {
   if (!email) return
 
-  const { data, pending, error, refresh } = await useFetch('/api/subscribe', {
+  const { data, pending, error } = await useFetch('/api/subscribe', {
     method: 'post',
     body: { email: email.value.trim() },
   })
