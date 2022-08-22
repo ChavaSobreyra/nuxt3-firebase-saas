@@ -17,20 +17,26 @@
       >
         subscribe
       </button>
-      <div v-if="data" class="text-green-600">Subscribed!</div>
-      <div v-if="error" class="text-red-600">Error.</div>
     </div>
+    <div v-if="error" class="text-red-600">Error.</div>
+    <div v-else-if="data" class="text-green-600">Subscribed!</div>
   </div>
 </template>
 
 <script setup lang="ts">
 const email = ref('')
+const data = ref()
+const pending = ref()
+const error = ref()
 async function postSubscribe() {
   if (!email) return
-
-  const { data, pending, error } = await useFetch('/api/subscribe', {
+  const result = await useFetch('/api/subscribe', {
     method: 'post',
     body: { email: email.value.trim() },
   })
+
+  data.value = result.data
+  pending.value = result.pending
+  error.value = result.error
 }
 </script>
