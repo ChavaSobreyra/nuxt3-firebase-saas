@@ -32,15 +32,12 @@ const error = ref()
 async function postSubscribe() {
   if (!email) return
   pending.value = true
-  try {
-    const result = await useFetch('/api/subscribe', {
-      method: 'post',
-      body: { email: email.value.trim() },
-    })
-    data.value = result.data
-  } catch (e) {
-    error.value = e
-  }
+  const result = await useFetch('/api/subscribe', {
+    method: 'post',
+    body: { email: email.value.trim() },
+  })
+  error.value = result.error
+  data.value = result.data
   pending.value = false
 }
 </script>
