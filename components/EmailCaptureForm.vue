@@ -28,15 +28,19 @@ const email = ref('')
 const data = ref()
 const pending = ref()
 const error = ref()
+
 async function postSubscribe() {
   if (!email) return
-  const result = await useFetch('/api/subscribe', {
-    method: 'post',
-    body: { email: email.value.trim() },
-  })
-
-  data.value = result.data
-  pending.value = result.pending
-  error.value = result.error
+  pending.value = true
+  try {
+    const result = await useFetch('/api/subscribe', {
+      method: 'post',
+      body: { email: email.value.trim() },
+    })
+    data.value = result.data
+  } catch (e) {
+    error.value = e
+  }
+  pending.value = false
 }
 </script>
