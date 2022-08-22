@@ -14,9 +14,9 @@ export default defineEventHandler(async event => {
       status: 'subscribed',
     })
 
-    return true
+    return 'success'
   } catch (error) {
-    console.error(error.response)
+    console.error(error.response.text)
     throw createError({ statusCode: 400, statusMessage: error.response.text })
   }
 })
