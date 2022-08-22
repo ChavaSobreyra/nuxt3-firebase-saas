@@ -47,6 +47,7 @@
     "vitest": "^0.21.1"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.78",
     "firebase": "^9.9.2",
     "lodash": "^4.17.21"
   }
