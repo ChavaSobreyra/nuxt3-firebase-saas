@@ -19,7 +19,6 @@
     "@testing-library/cypress": "^8.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/lodash": "^4.14.182",
-    "@types/mailchimp__mailchimp_marketing": "^3.0.5",
     "@vitejs/plugin-vue": "^3.0.3",
     "@vue/test-utils": "^2.0.2",
     "@vue/vue3-jest": "^28.0.1",
