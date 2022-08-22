@@ -2,22 +2,20 @@ import mailchimp from '@mailchimp/mailchimp_marketing'
 
 mailchimp.setConfig({
   apiKey: useRuntimeConfig().mailchimpApiKey,
-  server: 'us17',
+  server: useRuntimeConfig().mailchimpServer,
 })
 
-export default defineEventHandler(async e => {
-  const body = await useBody(e)
-  console.log('here')
-  console.log({ body })
-
+export default defineEventHandler(async event => {
   try {
-    await mailchimp.lists.addListMember('00df368c5c', {
+    const body = await useBody(event)
+
+    await mailchimp.lists.addListMember(useRuntimeConfig().mailchimpList, {
       email_address: body.email,
       status: 'subscribed',
     })
+
     return true
   } catch (error) {
-    console.error(error.response.body)
-    throw new Error('failed to subscribe')
+    throw createError({ statusCode: 400, statusMessage: 'Subscription failed' })
   }
 })

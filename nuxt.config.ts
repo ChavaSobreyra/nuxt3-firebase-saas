@@ -5,6 +5,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     baseURL: process.env.NUXT_BASE_URL ?? 'http://localhost:3001',
     mailchimpApiKey: process.env.NUXT_MAILCHIMP_API_KEY ?? '',
+    mailchimpServer: process.env.NUXT_MAILCHIMP_SERVER ?? '',
+    mailchimpList: process.env.NUXT_MAILCHIMP_LIST ?? '',
     public: {
       firebaseApiKey: process.env.NUXT_PUBLIC_FIREBASE_API_KEY ?? '',
       firebaseAuthDomain: process.env.NUXT_PUBLIC_FIREBASE_AUTH_DOMAIN ?? '',
@@ -34,14 +36,4 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/tailwind.css'],
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-  },
 })

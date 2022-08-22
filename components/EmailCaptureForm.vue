@@ -22,12 +22,11 @@
 <script setup>
 const email = ref('')
 async function postSubscribe() {
-  console.log('postSubscribe')
   if (!email) return
-  console.log({ email })
-  await useFetch('/api/subscribe', {
+
+  const { data, pending, error, refresh } = await useFetch('/api/subscribe', {
     method: 'post',
-    body: { email: email.value },
+    body: { email: email.value.trim() },
   })
 }
 </script>
