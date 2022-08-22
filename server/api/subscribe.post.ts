@@ -6,14 +6,6 @@ mailchimp.setConfig({
 })
 
 export default defineEventHandler(async event => {
-  const session = {
-    activeRound: {
-      votes: [{ userId: '', selection: 1 }],
-    },
-    pastRounds: [],
-    users: [],
-  }
-
   try {
     const body = await useBody(event)
 
