@@ -1,3 +1,7 @@
 <template>
-  <div>home</div>
+  <div>
+    home
+    <br />
+    <EmailCaptureForm />
+  </div>
 </template>
